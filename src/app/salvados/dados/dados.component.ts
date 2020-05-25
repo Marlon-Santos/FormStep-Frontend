@@ -5,6 +5,7 @@ import {
   EventEmitter,
   Host,
   Optional,
+  AfterViewInit,
 } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SalvadosComponent } from '../salvados.component';
@@ -15,9 +16,9 @@ import { SalvadosComponent } from '../salvados.component';
   styleUrls: ['./dados.component.scss'],
 })
 export class DadosComponent implements OnInit {
-  @Output() ok = new EventEmitter<FormGroup>();
+  @Output() cotacaoFormGroup = new EventEmitter<FormGroup>();
   salvadoComponent: SalvadosComponent;
-  test: FormGroup;
+  dados: FormGroup;
   constructor(
     @Host() salvadoComponent: SalvadosComponent,
     private formBuilder: FormBuilder
@@ -26,10 +27,10 @@ export class DadosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.test = this.formBuilder.group({
+    this.dados = this.formBuilder.group({
       testando: ['', Validators.required],
     });
-    this.ok.emit(this.test);
+    this.cotacaoFormGroup.emit(this.dados);
   }
 
   next() {

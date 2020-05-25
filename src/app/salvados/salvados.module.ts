@@ -10,9 +10,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DadosComponent } from './dados/dados.component';
+import { CotacaoComponent } from './cotacao/cotacao.component';
+import { EmailComponent } from './email/email.component';
 
 @NgModule({
-  declarations: [SalvadosComponent, DadosComponent],
+  declarations: [SalvadosComponent, DadosComponent, CotacaoComponent, EmailComponent],
   imports: [
     CommonModule,
     MatCardModule,

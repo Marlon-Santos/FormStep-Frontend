@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CdkStepper } from '@angular/cdk/stepper';
 
@@ -7,7 +7,7 @@ import { CdkStepper } from '@angular/cdk/stepper';
   templateUrl: './salvados.component.html',
   styleUrls: ['./salvados.component.scss'],
 })
-export class SalvadosComponent implements OnInit {
+export class SalvadosComponent implements OnInit, AfterViewInit {
   dados: FormGroup;
   cotacao: FormGroup;
   email: FormGroup;
@@ -19,7 +19,7 @@ export class SalvadosComponent implements OnInit {
   isEditable = true;
   @ViewChild('stepper') stepper: CdkStepper;
 
-  constructor() {}
+  constructor(private fg: FormBuilder) {}
 
   dadosFG(fg) {
     this.dados = fg;
@@ -42,5 +42,17 @@ export class SalvadosComponent implements OnInit {
   pagamentoFG(fg) {
     this.pagamento = fg;
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dados = this.fg.group({});
+    this.cotacao = this.fg.group({});
+    this.email = this.fg.group({});
+    this.propostas = this.fg.group({});
+    this.bmpPesagem = this.fg.group({});
+    this.notaFiscal = this.fg.group({});
+    this.pagamento = this.fg.group({});
+  }
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+  }
 }

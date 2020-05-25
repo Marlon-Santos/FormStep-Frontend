@@ -4,40 +4,10 @@
 </button>
 
 <mat-horizontal-stepper linear #stepper>
-    <mat-step [stepControl]="dados">
-        <app-dados (ok)="dadosFG($event)"></app-dados>
-    </mat-step>
-    <mat-step [stepControl]="cotacao">
-        <app-dados (ok)="dadosFG($event)"></app-dados>
-    </mat-step>
-    <mat-step [stepControl]="email">
-        <app-dados (ok)="dadosFG($event)"></app-dados>
-    </mat-step>
-    <!-- <mat-step [stepControl]="test">
-    <app-dados (ok)="okFn($event)"></app-dados>
+  <mat-step [stepControl]="dados" [editable]="isEditable">
+    <app-dados (dadosFormGroup)="dadosFG($event)"></app-dados>
   </mat-step>
-  <mat-step [stepControl]="test">
-    <app-dados (ok)="okFn($event)"></app-dados>
+  <mat-step [stepControl]="cotacao" [editable]="isEditable">
+    <app-cotacao (cotacaoFormGroup)="cotacaoFG($event)"></app-cotacao>
   </mat-step>
-  <mat-step [stepControl]="test">
-    <app-dados (ok)="okFn($event)"></app-dados>
-  </mat-step>
-  <mat-step [stepControl]="test">
-    <app-dados (ok)="okFn($event)"></app-dados>
-  </mat-step>
-  <mat-step [stepControl]="test">
-    <app-dados (ok)="okFn($event)"></app-dados>
-  </mat-step>
-  <mat-step [stepControl]="test">
-    <app-dados (ok)="okFn($event)"></app-dados>
-  </mat-step> -->
-
-    <!-- <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step> -->
 </mat-horizontal-stepper>
