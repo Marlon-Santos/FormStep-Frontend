@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CdkStepper } from '@angular/cdk/stepper';
+import { CdkStepper, StepperSelectionEvent } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-salvados',
@@ -15,12 +15,17 @@ export class SalvadosComponent implements OnInit, AfterViewInit {
   bmpPesagem: FormGroup;
   notaFiscal: FormGroup;
   pagamento: FormGroup;
-
   isEditable = true;
+  lastNumberEdit = 0;
   @ViewChild('stepper') stepper: CdkStepper;
 
   constructor(private fg: FormBuilder) {}
-
+  selectionChange(stepperSelectionEvent: StepperSelectionEvent) {
+    if (stepperSelectionEvent.selectedIndex > this.lastNumberEdit) {
+      this.lastNumberEdit = stepperSelectionEvent.selectedIndex;
+    }
+    console.log(stepperSelectionEvent);
+  }
   dadosFG(fg) {
     this.dados = fg;
   }

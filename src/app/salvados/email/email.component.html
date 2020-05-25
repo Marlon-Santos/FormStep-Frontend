@@ -1,1 +1,17 @@
 <p>email works!</p>
+<form [formGroup]="email">
+  <ng-template matStepLabel>Fill out yfdfdour address</ng-template>
+  <mat-form-field>
+    <mat-label>Address</mat-label>
+    <input
+      matInput
+      formControlName="testando"
+      placeholder="6uy75tork, NY"
+      required
+    />
+  </mat-form-field>
+  <div>
+    <button mat-button (click)="next()">sdBack</button>
+    <button>Next</button>
+  </div>
+</form>

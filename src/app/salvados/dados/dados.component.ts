@@ -16,7 +16,7 @@ import { SalvadosComponent } from '../salvados.component';
   styleUrls: ['./dados.component.scss'],
 })
 export class DadosComponent implements OnInit {
-  @Output() cotacaoFormGroup = new EventEmitter<FormGroup>();
+  @Output() dadosFormGroup = new EventEmitter<FormGroup>();
   salvadoComponent: SalvadosComponent;
   dados: FormGroup;
   constructor(
@@ -30,7 +30,7 @@ export class DadosComponent implements OnInit {
     this.dados = this.formBuilder.group({
       testando: ['', Validators.required],
     });
-    this.cotacaoFormGroup.emit(this.dados);
+    this.dadosFormGroup.emit(this.dados);
   }
 
   next() {

@@ -1,13 +1,44 @@
-<p>salvados works!</p>
-<button mat-raised-button (click)="isEditable = !isEditable">
-  {{ !isEditable ? "Enable edit mode" : "Disable edit mode" }}
-</button>
+<div>
+  <mat-horizontal-stepper
+    class="test"
+    linear
+    #stepper
+    (selectionChange)="selectionChange($event)"
+  >
+    <!-- <ng-template matStepperIcon="edit">
+      <mat-icon>done</mat-icon>
+    </ng-template> -->
+    <ng-template matStepperIcon="edit" let-index="index">
+      <ng-container *ngIf="index == lastNumberEdit; else elseTemplate">
+        <mat-icon>edit</mat-icon>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <mat-icon>done</mat-icon>
+      </ng-template>
+    </ng-template>
+    <ng-template matStepperIcon="number" let-index="index">
+      <ng-container *ngIf="index == lastNumberEdit">
+        <mat-icon>edit</mat-icon>
+      </ng-container>
+      <ng-container *ngIf="index < lastNumberEdit">
+        <mat-icon>done</mat-icon>
+      </ng-container>
 
-<mat-horizontal-stepper linear #stepper>
-  <mat-step [stepControl]="dados" [editable]="isEditable">
-    <app-dados (dadosFormGroup)="dadosFG($event)"></app-dados>
-  </mat-step>
-  <mat-step [stepControl]="cotacao" [editable]="isEditable">
-    <app-cotacao (cotacaoFormGroup)="cotacaoFG($event)"></app-cotacao>
-  </mat-step>
-</mat-horizontal-stepper>
+      <ng-container *ngIf="index > lastNumberEdit">
+        {{ index + 1 }}
+      </ng-container>
+    </ng-template>
+    <mat-step [stepControl]="dados" [editable]="isEditable" state="dados">
+      <ng-template matStepLabel>Dados</ng-template>
+      <app-dados (dadosFormGroup)="dadosFG($event)"></app-dados>
+    </mat-step>
+    <mat-step [stepControl]="cotacao" [editable]="isEditable" state="cotacao">
+      <ng-template matStepLabel>Cotação</ng-template>
+      <app-cotacao (cotacaoFormGroup)="cotacaoFG($event)"></app-cotacao>
+    </mat-step>
+    <mat-step [stepControl]="email" [editable]="isEditable" state="email">
+      <ng-template matStepLabel>E-mail</ng-template>
+      <app-cotacao (emailFormGroup)="emailFG($event)"></app-cotacao>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
