@@ -8,17 +8,39 @@ import { CdkStepper } from '@angular/cdk/stepper';
   styleUrls: ['./salvados.component.scss'],
 })
 export class SalvadosComponent implements OnInit {
-  test: FormGroup;
-  secondFormGroup: FormGroup;
+  dados: FormGroup;
+  cotacao: FormGroup;
+  email: FormGroup;
+  propostas: FormGroup;
+  bmpPesagem: FormGroup;
+  notaFiscal: FormGroup;
+  pagamento: FormGroup;
+
   isEditable = true;
   @ViewChild('stepper') stepper: CdkStepper;
-  constructor(private formBuilder: FormBuilder) {}
-  okFn(e) {
-    this.test = e;
+
+  constructor() {}
+
+  dadosFG(fg) {
+    this.dados = fg;
   }
-  ngOnInit(): void {
-    this.secondFormGroup = this.formBuilder.group({
-      secondCtrl: ['', Validators.required],
-    });
+  cotacaoFG(fg) {
+    this.cotacao = fg;
   }
+  emailFG(fg) {
+    this.email = fg;
+  }
+  PropostasFG(fg) {
+    this.propostas = fg;
+  }
+  bmpPesagemFG(fg) {
+    this.bmpPesagem = fg;
+  }
+  notaFiscalFG(fg) {
+    this.notaFiscal = fg;
+  }
+  pagamentoFG(fg) {
+    this.pagamento = fg;
+  }
+  ngOnInit(): void {}
 }

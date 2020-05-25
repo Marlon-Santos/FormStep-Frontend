@@ -4,29 +4,35 @@
 </button>
 
 <mat-horizontal-stepper linear #stepper>
+    <mat-step [stepControl]="dados">
+        <app-dados (ok)="dadosFG($event)"></app-dados>
+    </mat-step>
+    <mat-step [stepControl]="cotacao">
+        <app-dados (ok)="dadosFG($event)"></app-dados>
+    </mat-step>
+    <mat-step [stepControl]="email">
+        <app-dados (ok)="dadosFG($event)"></app-dados>
+    </mat-step>
+    <!-- <mat-step [stepControl]="test">
+    <app-dados (ok)="okFn($event)"></app-dados>
+  </mat-step>
   <mat-step [stepControl]="test">
     <app-dados (ok)="okFn($event)"></app-dados>
   </mat-step>
-
-  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input
-          matInput
-          formControlName="secondCtrl"
-          placeholder="Ex. 1 Main St, New York, NY"
-          required
-        />
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
+  <mat-step [stepControl]="test">
+    <app-dados (ok)="okFn($event)"></app-dados>
   </mat-step>
-  <!-- <mat-step>
+  <mat-step [stepControl]="test">
+    <app-dados (ok)="okFn($event)"></app-dados>
+  </mat-step>
+  <mat-step [stepControl]="test">
+    <app-dados (ok)="okFn($event)"></app-dados>
+  </mat-step>
+  <mat-step [stepControl]="test">
+    <app-dados (ok)="okFn($event)"></app-dados>
+  </mat-step> -->
+
+    <!-- <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
     <div>
