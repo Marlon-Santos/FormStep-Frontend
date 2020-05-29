@@ -1,0 +1,49 @@
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+::ng-deep .mat-form-field-wrapper {
+  margin-bottom: -1.25em;
+}
+.card-personality {
+  width: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  ::ng-deep input {
+    padding-left: 15px !important;
+  }
+  span {
+    padding-left: 10px;
+  }
+}
+
+button {
+  outline: none;
+}
+.placeholder {
+  padding-left: 15px;
+  color: #aaa;
+}
+.mat-focused .placeholder {
+  color: transparent !important;
+}
+.label {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  color: black;
+  font-weight: 500;
+
+  mat-icon {
+    font-size: 7px;
+    color: red;
+  }
+}
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.numberInput {
+  width: 180px;
+}

@@ -1,0 +1,60 @@
+<form
+  [formGroup]="formGroupInfo"
+  class="row"
+  [ngClass]="{
+    'justify-content-center ': alignInput == 'center',
+    'justify-content-end ': alignInput == 'end'
+  }"
+>
+  <ng-container *ngIf="inputType == 'number'; else elseTemplate">
+    <label>
+      <div class="label">{{ labelText }}<mat-icon>star</mat-icon></div>
+      <mat-form-field floatLabel="never" class="card-personality numberInput">
+        <input
+          style="display: inline-block;"
+          type="number"
+          matInput
+          class="input"
+          [formControlName]="controlName"
+        />
+        <mat-error> {{ controlName }} is <strong>required</strong> </mat-error>
+
+        <mat-placeholder #placeholder class="placeholder">--</mat-placeholder>
+      </mat-form-field></label
+    >
+  </ng-container>
+  <ng-template #elseTemplate>
+    <label>
+      <div class="label">{{ labelText }}<mat-icon>star</mat-icon></div>
+      <mat-form-field
+        floatLabel="never"
+        class="card-personality"
+        matAutocompleteOrigin
+        #origin="matAutocompleteOrigin"
+      >
+        <input
+          style="display: inline-block;"
+          matInput
+          class="input"
+          [formControlName]="controlName"
+          [matAutocomplete]="auto"
+          [matAutocompleteConnectedTo]="origin"
+        />
+        <mat-error> {{ controlName }} is <strong>required</strong> </mat-error>
+        <mat-placeholder #placeholder class="placeholder">--</mat-placeholder>
+        <button mat-icon-button style="font-size: 30px !important;" matSuffix>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+        <mat-autocomplete mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            (focus)="focusAutoComplete()"
+            (focusout)="focusOutAutoComplete()"
+            *ngFor="let option of autoCompleteDadosOptions | async"
+            [value]="option"
+            >{{ option }}</mat-option
+          >
+        </mat-autocomplete>
+      </mat-form-field></label
+    >
+  </ng-template>
+</form>
