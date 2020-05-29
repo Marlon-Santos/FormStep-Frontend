@@ -1,0 +1,22 @@
+mat-header-row ::ng-deep {
+  background-color: #eee;
+  font-weight: bold;
+  height: 10px !important;
+  line-height: 0 !important;
+  min-height: 40px !important;
+}
+mat-header-cell ::ng-deep {
+  height: 10px !important;
+  line-height: 0 !important;
+}
+.mat-table {
+  box-shadow: none;
+  border: 1px solid #eee;
+}
+.mat-row {
+  line-height: 0 !important;
+  min-height: 40px !important;
+}
+.addCircle {
+  color: green;
+}
