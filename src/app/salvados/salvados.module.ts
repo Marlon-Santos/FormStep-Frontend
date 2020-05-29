@@ -12,9 +12,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DadosComponent } from './dados/dados.component';
 import { CotacaoComponent } from './cotacao/cotacao.component';
 import { EmailComponent } from './email/email.component';
-
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { InputComponent } from './shared/input/input.component';
+import { RadiosComponent } from './shared/radios/radios.component';
+import { UploadComponent } from './shared/upload/upload.component';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
-  declarations: [SalvadosComponent, DadosComponent, CotacaoComponent, EmailComponent],
+  declarations: [
+    SalvadosComponent,
+    DadosComponent,
+    CotacaoComponent,
+    EmailComponent,
+    InputComponent,
+    RadiosComponent,
+    UploadComponent,
+  ],
   imports: [
     CommonModule,
     MatCardModule,
@@ -25,7 +39,16 @@ import { EmailComponent } from './email/email.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatTableModule,
   ],
-  exports: [SalvadosComponent],
+  exports: [
+    SalvadosComponent,
+    InputComponent,
+    UploadComponent,
+    RadiosComponent,
+  ],
 })
 export class SalvadosModule {}
