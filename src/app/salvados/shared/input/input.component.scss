@@ -13,6 +13,10 @@
   span {
     padding-left: 10px;
   }
+  &.mat-form-field-invalid {
+    // border: 10px solid red !important;
+    border: 1px solid red;
+  }
 }
 
 button {

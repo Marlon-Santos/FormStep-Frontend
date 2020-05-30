@@ -3,12 +3,13 @@
     <mat-header-cell *matHeaderCellDef>
       {{ item.toUpperCase() }}
     </mat-header-cell>
-    <mat-cell *matCellDef="let element">
-      <div class="row justify-content-between align-content-center">
-        <div class="col">{{ element[item] }}</div>
-        <div *ngIf="item == 'symbol'" class="col">
-          <mat-icon class="addCircle">add_circle</mat-icon>
-        </div>
+    <mat-cell
+      *matCellDef="let element"
+      [class]="item == 'symbol' ? 'matCellAlign' : ''"
+    >
+      <div>{{ element[item] }}</div>
+      <div *ngIf="item == 'symbol'">
+        <mat-icon class="addCircle">add_circle</mat-icon>
       </div>
     </mat-cell>
   </ng-container>

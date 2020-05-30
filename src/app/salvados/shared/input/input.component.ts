@@ -17,6 +17,7 @@ export const _filter = (opt: any[], value: string): string[] => {
 })
 export class InputComponent implements OnInit {
   @ViewChild('placeholder') autoComplete: ElementRef;
+  @ViewChild('matFormField') matFormField: ElementRef;
   @Input() formGroupInfo: FormGroup;
   @Input() autoCompleteDados: any[];
   @Input() controlName: string;
@@ -39,8 +40,9 @@ export class InputComponent implements OnInit {
       );
   }
 
-  focusAutoComplete() {
+  focusAutoComplete(mat) {
     this.autoComplete.nativeElement.style.color = 'transparent';
+    mat._elementRef.nativeElement.style.border = 'none';
   }
   focusOutAutoComplete() {
     this.autoComplete.nativeElement.style.color = '#aaa';

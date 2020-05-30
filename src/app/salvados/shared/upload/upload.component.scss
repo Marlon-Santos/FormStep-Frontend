@@ -10,6 +10,7 @@ mat-header-cell ::ng-deep {
   line-height: 0 !important;
 }
 .mat-table {
+  width: 1000px;
   box-shadow: none;
   border: 1px solid #eee;
 }
@@ -19,4 +20,7 @@ mat-header-cell ::ng-deep {
 }
 .addCircle {
   color: green;
+}
+.matCellAlign {
+  justify-content: space-between;
 }

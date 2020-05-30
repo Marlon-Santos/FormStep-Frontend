@@ -9,7 +9,11 @@
   <ng-container *ngIf="inputType == 'number'; else elseTemplate">
     <label>
       <div class="label">{{ labelText }}<mat-icon>star</mat-icon></div>
-      <mat-form-field floatLabel="never" class="card-personality numberInput">
+      <mat-form-field
+        floatLabel="never"
+        class="card-personality numberInput"
+        #matFormField
+      >
         <input
           style="display: inline-block;"
           type="number"
@@ -17,8 +21,6 @@
           class="input"
           [formControlName]="controlName"
         />
-        <mat-error> {{ controlName }} is <strong>required</strong> </mat-error>
-
         <mat-placeholder #placeholder class="placeholder">--</mat-placeholder>
       </mat-form-field></label
     >
@@ -31,6 +33,7 @@
         class="card-personality"
         matAutocompleteOrigin
         #origin="matAutocompleteOrigin"
+        #matFormField
       >
         <input
           style="display: inline-block;"
@@ -40,14 +43,13 @@
           [matAutocomplete]="auto"
           [matAutocompleteConnectedTo]="origin"
         />
-        <mat-error> {{ controlName }} is <strong>required</strong> </mat-error>
         <mat-placeholder #placeholder class="placeholder">--</mat-placeholder>
         <button mat-icon-button style="font-size: 30px !important;" matSuffix>
           <mat-icon>arrow_drop_down</mat-icon>
         </button>
         <mat-autocomplete mat-autocomplete #auto="matAutocomplete">
           <mat-option
-            (focus)="focusAutoComplete()"
+            (focus)="focusAutoComplete(matFormField)"
             (focusout)="focusOutAutoComplete()"
             *ngFor="let option of autoCompleteDadosOptions | async"
             [value]="option"
